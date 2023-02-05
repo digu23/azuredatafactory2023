@@ -83,7 +83,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText1",
+						"referenceName": "ds_FilefromJSONRestAPI",
 						"type": "DatasetReference"
 					}
 				]

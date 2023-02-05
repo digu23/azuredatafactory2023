@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "ds_FilefromJSONRestAPI",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lnk_AzureBlobStorage",
