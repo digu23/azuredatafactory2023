@@ -1,0 +1,24 @@
+{
+	"name": "ds_Jsonfile_RestApi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "NewUserDetails.csv",
+				"folderPath": "02042023",
+				"container": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
