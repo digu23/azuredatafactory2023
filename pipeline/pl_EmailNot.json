@@ -20,6 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"wildcardFileName": "Emp1.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -49,7 +50,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_MultDestination",
+						"referenceName": "Ds_sourceEmail",
 						"type": "DatasetReference"
 					}
 				],
