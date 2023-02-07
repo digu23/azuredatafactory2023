@@ -1,5 +1,5 @@
 {
-	"name": "ds_MultDestination",
+	"name": "ds_getEmp1File",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lnk_AzureBlobStorage",
@@ -10,11 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Emp1.csv",
-				"container": "archive"
+				"fileName": "Emp1Output.csv",
+				"container": "input"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []

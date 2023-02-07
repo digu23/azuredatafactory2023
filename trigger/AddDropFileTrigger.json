@@ -1,0 +1,25 @@
+{
+	"name": "AddDropFileTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_settrig",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/archive/blobs/Emp",
+			"blobPathEndsWith": ".txt",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/139dcb53-43aa-47e2-be8c-7d221c08785d/resourceGroups/DR-RSG1/providers/Microsoft.Storage/storageAccounts/drstorage23",
+			"events": [
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}

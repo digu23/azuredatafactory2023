@@ -1,0 +1,106 @@
+{
+	"name": "pl_FileExistsNoEmail",
+	"properties": {
+		"description": "check if file exists or does not in Blob else send email",
+		"activities": [
+			{
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "ds_getEmp1File",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"exists"
+					],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@activity('Get Metadata1').output.exists",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "If File Does not exists send email",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://prod-79.eastus.logic.azure.com:443/workflows/d9543a3aaba1495eb6fa5f8f1b252298/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3_VLK5jSZB2Vyi9Y8wghXtGcJXQOL7dwBymOpLwzTVA",
+								"method": "POST",
+								"body": {
+									"value": "{\n  \"FileExists\":\"Emp File does not exists. Please check with vendor\", \n  \"pipelinename\":\"@{pipeline().Pipeline}\" \n}",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"ifTrueActivities": [
+						{
+							"name": "File Exists",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://prod-79.eastus.logic.azure.com:443/workflows/d9543a3aaba1495eb6fa5f8f1b252298/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=3_VLK5jSZB2Vyi9Y8wghXtGcJXQOL7dwBymOpLwzTVA",
+								"method": "POST",
+								"body": {
+									"value": "{\n  \"FileExists\":\"Emp File does exists, please proceed\", \n  \"pipelinename\":\"@{pipeline().Pipeline}\" \n}",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"folder": {
+			"name": "Emails"
+		},
+		"annotations": []
+	}
+}
