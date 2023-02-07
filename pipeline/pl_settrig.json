@@ -9,10 +9,12 @@
 				"dependsOn": [],
 				"userProperties": [
 					{
-						"name": "FileName"
+						"name": "FileName",
+						"value": "Emp*.txt"
 					},
 					{
-						"name": "ContainerName"
+						"name": "ContainerName",
+						"value": "archive"
 					}
 				],
 				"typeProperties": {
