@@ -5,6 +5,18 @@
 		"factoryName": {
 			"value": "DR-UAT"
 		},
+		"lnk_AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/posts"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"value": "https://jsonplaceholder.typicode.com/users"
+		},
+		"AddDropFileTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/139dcb53-43aa-47e2-be8c-7d221c08785d/resourceGroups/DR-RSG1/providers/Microsoft.Storage/storageAccounts/drstorage23"
+		},
 		"containerUri": {
 			"value": ""
 		},

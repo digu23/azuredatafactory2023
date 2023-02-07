@@ -7,6 +7,22 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "DR-UAT"
 		},
+		"lnk_AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lnk_AzureBlobStorage'"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/posts"
+		},
+		"RestService2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jsonplaceholder.typicode.com/users"
+		},
+		"AddDropFileTrigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/139dcb53-43aa-47e2-be8c-7d221c08785d/resourceGroups/DR-RSG1/providers/Microsoft.Storage/storageAccounts/drstorage23"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -33,6 +49,18 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"lnk_AzureBlobStorage_connectionString": {
+						"value": "[parameters('lnk_AzureBlobStorage_connectionString')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"RestService2_properties_typeProperties_url": {
+						"value": "[parameters('RestService2_properties_typeProperties_url')]"
+					},
+					"AddDropFileTrigger_properties_typeProperties_scope": {
+						"value": "[parameters('AddDropFileTrigger_properties_typeProperties_scope')]"
 					}
 				}
 			},
