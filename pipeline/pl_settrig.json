@@ -1,6 +1,7 @@
 {
 	"name": "pl_settrig",
 	"properties": {
+		"description": "Trigger if the file is deleted",
 		"activities": [
 			{
 				"name": "Wait1",
